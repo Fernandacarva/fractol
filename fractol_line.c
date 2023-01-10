@@ -6,24 +6,52 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:05:24 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/03 17:27:17 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:47:33 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	line_pixel(int x, int y)
+void	line_pixel(t_data *img)
 {
-	while (x < 400)
+	double num_r;
+	double	num_i;
+
+	img->x = 0;
+	while (img->x < WIDTH)
 	{
-		y = 0;
-		printf("Para a linha (x): %d\n", x);
-		x++;
-		while (y < 400)
+		img->y = 0;
+		while (img->y < HEIGHT)
 		{
-			printf("Analisando coluna(y): %d\n", y);
-			my_mlx_pixel_put(&img, x, y, 0x00FF1CAE);
-			y++;
+			num_r = img->min_r + (double)img->x * (img->max_r - img->min_r) / WIDTH;
+			num_i = img->min_i + (double)img->y * (img->max_i - img->min_i) / HEIGHT;
+			mandelbrot(img, num_r, num_i);	
+			img->y++;
 		}
+		img->x++;
 	}
+	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
 }
+
+void	pixel_julia(t_data *img)
+{
+	double num_r;
+	double	num_i;
+
+	img->x = 0;
+	while (img->x < WIDTH)
+	{
+		img->y = 0;
+		while (img->y < HEIGHT)
+		{
+			num_r = img->min_r + (double)img->x * (img->max_r - img->min_r) / WIDTH;
+			num_i = img->min_i + (double)img->y * (img->max_i - img->min_i) / HEIGHT;
+			julia(img, num_r, num_i);	
+			img->y++;
+		}
+		img->x++;
+	}
+	mlx_put_image_to_window(img->mlx, img->mlx_win, img->img, 0, 0);
+}
+
+
