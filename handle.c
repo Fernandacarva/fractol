@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:15:13 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/11 16:20:25 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:56:30 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,11 @@ int	mouse(int button, int x, int y, t_data *img)
 
 int	keyboard(int key, t_data *img)
 {
-	if (key ==
+	if (key == 53)
+	{
+		mlx_destroy_window(img->img, img->mlx_win);
+		exit(0);
+	}
 
 
 }
