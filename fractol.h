@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:43:21 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/10 17:50:16 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:07:22 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	t_data{
 	double	min_i;
 	double	max_i;
 	int		set_julia;
+	int		argc;
 } t_data;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -49,4 +50,6 @@ int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 int		error(int argc, char **argv);
 void	error_msg(void);
+int		mouse(int button, int x, int y, t_data *img);
+int		keyboard(int key, t_data *img);
 #endif

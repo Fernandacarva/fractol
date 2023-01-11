@@ -6,14 +6,14 @@
 #    By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/03 11:42:29 by ferncarv          #+#    #+#              #
-#    Updated: 2023/01/10 17:23:24 by ferncarv         ###   ########.fr        #
+#    Updated: 2023/01/11 14:55:59 by ferncarv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol 
   
   
-SRCS = fractol.c fractol_line.c put_pixel.c mandelbrot.c julia.c check_error.c ft_atoi.c ft_strcmp.c
+SRCS = fractol.c fractol_line.c put_pixel.c mandelbrot.c julia.c check_error.c ft_atoi.c ft_strcmp.c handle.c
   
   
 OBJS = ${SRCS:.c=.o} 

@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 17:05:24 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/10 14:47:33 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:00:21 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	line_pixel(t_data *img)
 		img->y = 0;
 		while (img->y < HEIGHT)
 		{
-			num_r = img->min_r + (double)img->x * (img->max_r - img->min_r) / WIDTH;
-			num_i = img->min_i + (double)img->y * (img->max_i - img->min_i) / HEIGHT;
+			num_r = 0 + (img->min_r + (double)img->x * (img->max_r - img->min_r) / WIDTH);
+			num_i = -0.5 + (img->min_i + (double)img->y * (img->max_i - img->min_i) / HEIGHT);
 			mandelbrot(img, num_r, num_i);	
 			img->y++;
 		}
@@ -44,8 +44,8 @@ void	pixel_julia(t_data *img)
 		img->y = 0;
 		while (img->y < HEIGHT)
 		{
-			num_r = img->min_r + (double)img->x * (img->max_r - img->min_r) / WIDTH;
-			num_i = img->min_i + (double)img->y * (img->max_i - img->min_i) / HEIGHT;
+			num_r = 0.5 + (img->min_r + (double)img->x * (img->max_r - img->min_r) / WIDTH);
+			num_i = -0.5 + (img->min_i + (double)img->y * (img->max_i - img->min_i) / HEIGHT);
 			julia(img, num_r, num_i);	
 			img->y++;
 		}

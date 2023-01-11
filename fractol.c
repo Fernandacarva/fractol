@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:43:10 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/10 17:53:43 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:30:56 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	cmd_img(t_data *img, int argc)
 		line_pixel(img);
 	else
 		pixel_julia(img);
+	mlx_mouse_hook(img->mlx_win, mouse, img);
 	mlx_loop(img->mlx);
 }
 
@@ -35,6 +36,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 2 || argc == 3)
 	{
+		img.argc = argc;
 		if (error(argc, argv) == 1)
 			img.set_julia = 1;
 		if (error(argc, argv) == 2)
