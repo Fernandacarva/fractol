@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:15:13 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/11 16:56:30 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:49:58 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,20 @@ int	keyboard(int key, t_data *img)
 	if (key == 53)
 	{
 		mlx_destroy_window(img->img, img->mlx_win);
+		mlx_destroy_image(img->img, img->mlx);
 		exit(0);
 	}
-
-
+	else if (key == 126)
+		img->focus -= 0.1;
+	else if (key == 125)
+		img->focus += 0.1;
+	else if (key == 124)
+		img->focus_rm -= 0.1;
+	else if (key == 123)
+		img->focus_rm += 0.1;
+	if (img->argc == 2)
+		line_pixel(img);
+	else
+		pixel_julia(img);
+	return (0);
 }

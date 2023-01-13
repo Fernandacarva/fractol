@@ -6,13 +6,13 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:52:16 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/10 17:51:36 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:44:44 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void 	error_msg(void)
+void	error_msg(void)
 {
 	write(1, "Try one of these options\n", 25);
 	write(1, "./fractol julia 1\n", 18);
@@ -24,16 +24,15 @@ void 	error_msg(void)
 int	error(int argc, char **argv)
 {
 	int	value;
-	int i;
+	int	i;
 
 	i = 0;
 	if (ft_strcmp(argv[1], "julia") == 0 && argc == 3)
 	{
-
 		while (argv[2][i])
 		{
 			if (ft_isdigit(argv[2][i]) == 0)
-					error_msg();
+				error_msg();
 			i++;
 		}
 		value = ft_atoi(argv[2]);

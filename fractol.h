@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:43:21 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/11 16:07:22 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/13 18:50:59 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct	t_data{
 	double	max_i;
 	int		set_julia;
 	int		argc;
+	double	focus;
+	double	focus_rm;
 } t_data;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);

@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:48:11 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/11 15:54:12 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:54:12 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,35 @@ void	put_color_julia(t_data *img, int x, int y, int n)
 
 void	julia(t_data *img, double zr, double zi)
 {
-	 int	n;
-	 double	tmp;
-	 int	is_in_set;
-	 double	real;
-	 double	imagy;
+	int		n;
+	double	tmp;
+	int		is_in_set;
+	double	real;
+	double	imagy;
 
-	 if (img->set_julia == 1)
-	 {
+	if (img->set_julia == 1)
+	{
 		imagy = 0.355;
 		real = 0.355;
-	 }
-	 if (img->set_julia == 2)
-	 {
+	}
+	if (img->set_julia == 2)
+	{
 		real = 0.34;
 		imagy = (-0.05);
-	 }
-	 n = -1;
-	 is_in_set = 1;
-	 while (++n < MAX_ITERATIONS)
-	 {
-		 if ((zr * zr + zi * zi) > 4.0)
-		 {
+	}
+	n = -1;
+	is_in_set = 1;
+	while (++n < MAX_ITERATIONS)
+	{
+		if ((zr * zr + zi * zi) > 4.0)
+		{
 			is_in_set = 0;
 			break;
-		 }
+		}
 		tmp = 2 * zr * zi + imagy;
 		zr = zr * zr - zi * zi + real;
 		zi = tmp;
-	 }
+	}
 	if (is_in_set == 1)
 		my_mlx_pixel_put(img, img->x, img->y, 0x000000);
 	else

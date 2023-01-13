@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:04:55 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/10 18:32:47 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:56:24 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,29 @@ void	put_color_mandelbrot(t_data *img, int x, int y, int n)
 
 void	mandelbrot(t_data *img, double cr, double ci)
 {
-	 int	n;
-	 double	zr;
-	 double	zi;
-	 double	tmp;
-	 int	is_in_set;
+	int		n;
+	double	zr;
+	double	zi;
+	double	tmp;
+	int		is_in_set;
 
-	 zr = 0;
-	 zi = 0;
-	 n = -1;
-	 is_in_set = 1;
-	 while (++n < MAX_ITERATIONS)
-	 {
-		 if ((zr * zr + zi * zi) > 4.0)
-		 {
+	zr = 0;
+	zi = 0;
+	n = -1;
+	is_in_set = 1;
+	while (++n < MAX_ITERATIONS)
+	{
+		if ((zr * zr + zi * zi) > 4.0)
+		{
 			is_in_set = 0;
 			break;
-		 }
+		}
 		tmp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;
 		zi = tmp;
-	 }
+	}
 	if (is_in_set == 1)
 		my_mlx_pixel_put(img, img->x, img->y, 0x000000);
 	else
 		put_color_mandelbrot(img, img->x, img->y, n);
 }
-
-

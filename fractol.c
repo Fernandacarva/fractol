@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:43:10 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/11 15:30:56 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:27:43 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	cmd_img(t_data *img, int argc)
 {
 	img->min_r = -2.0;
+	img->focus = 0.5;
+	img->focus_rm = 0.5;
 	img->max_r = 1.0;
 	img->min_i = -1.0;
 	img->max_i = img->min_i + (img->max_r - img->min_r) * (HEIGHT / WIDTH);
@@ -27,6 +29,7 @@ void	cmd_img(t_data *img, int argc)
 	else
 		pixel_julia(img);
 	mlx_mouse_hook(img->mlx_win, mouse, img);
+	mlx_key_hook(img->mlx_win, keyboard, img);
 	mlx_loop(img->mlx);
 }
 
