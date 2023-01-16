@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:48:11 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/13 19:54:12 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:25:00 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ void	put_color_julia(t_data *img, int x, int y, int n)
 		my_mlx_pixel_put(img, x, y, 0xE0FFFF);
 }
 
-void	julia(t_data *img, double zr, double zi)
+void	contin_julia(t_data *img)
 {
-	int		n;
-	double	tmp;
-	int		is_in_set;
 	double	real;
 	double	imagy;
+	int		n;
 
 	if (img->set_julia == 1)
 	{
@@ -55,16 +53,25 @@ void	julia(t_data *img, double zr, double zi)
 		imagy = (-0.05);
 	}
 	n = -1;
+}
+
+void	julia(t_data *img, double zr, double zi)
+{
+	int		n;
+	double	tmp;
+	int		is_in_set;
+
+	n = -1;
 	is_in_set = 1;
 	while (++n < MAX_ITERATIONS)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
 		{
 			is_in_set = 0;
-			break;
+			break ;
 		}
-		tmp = 2 * zr * zi + imagy;
-		zr = zr * zr - zi * zi + real;
+		tmp = 2 * zr * zi + (-0.05);
+		zr = zr * zr - zi * zi + 0.34;
 		zi = tmp;
 	}
 	if (is_in_set == 1)

@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 11:43:10 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/13 19:27:43 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:33:11 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ void	cmd_img(t_data *img, int argc)
 	img->mlx = mlx_init();
 	img->mlx_win = mlx_new_window(img->mlx, WIDTH, HEIGHT, "fractol");
 	img->img = mlx_new_image(img->mlx, WIDTH, HEIGHT);
-	img->addr = mlx_get_data_addr(img->img, &img->bit_per_pixel, &img->line_length, &img->endian);
+	img->addr = mlx_get_data_addr(img->img, &img->bit_per_pixel,
+			&img->line_length, &img->endian);
 	if (argc == 2)
 		line_pixel(img);
 	else
 		pixel_julia(img);
 	mlx_mouse_hook(img->mlx_win, mouse, img);
 	mlx_key_hook(img->mlx_win, keyboard, img);
+	mlx_hook(img->mlx_win, 17, 0L, handle_close, img);
 	mlx_loop(img->mlx);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:04:55 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/13 19:56:24 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:27:24 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	mandelbrot(t_data *img, double cr, double ci)
 		if ((zr * zr + zi * zi) > 4.0)
 		{
 			is_in_set = 0;
-			break;
+			break ;
 		}
 		tmp = 2 * zr * zi + ci;
 		zr = zr * zr - zi * zi + cr;
