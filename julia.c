@@ -6,7 +6,7 @@
 /*   By: ferncarv <ferncarv@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:48:11 by ferncarv          #+#    #+#             */
-/*   Updated: 2023/01/16 14:25:00 by ferncarv         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:50:18 by ferncarv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,17 @@ void	put_color_julia(t_data *img, int x, int y, int n)
 
 void	contin_julia(t_data *img)
 {
-	double	real;
-	double	imagy;
 	int		n;
 
 	if (img->set_julia == 1)
 	{
-		imagy = 0.355;
-		real = 0.355;
+		img->imagy = 0.355;
+		img->real = 0.355;
 	}
 	if (img->set_julia == 2)
 	{
-		real = 0.34;
-		imagy = (-0.05);
+		img->real = 0.34;
+		img->imagy = (-0.05);
 	}
 	n = -1;
 }
@@ -63,6 +61,7 @@ void	julia(t_data *img, double zr, double zi)
 
 	n = -1;
 	is_in_set = 1;
+	contin_julia(img);
 	while (++n < MAX_ITERATIONS)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
@@ -70,8 +69,8 @@ void	julia(t_data *img, double zr, double zi)
 			is_in_set = 0;
 			break ;
 		}
-		tmp = 2 * zr * zi + (-0.05);
-		zr = zr * zr - zi * zi + 0.34;
+		tmp = 2 * zr * zi + img->imagy;
+		zr = zr * zr - zi * zi + img->real;
 		zi = tmp;
 	}
 	if (is_in_set == 1)
